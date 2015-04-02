@@ -53,3 +53,19 @@ ring location, position of inner dial).
 In addition, the script tracks the previous state and uses this to determine
 whether the up/down state of each button has changed, and whether the dial has
 moved to the left or the right since the previous read.
+
+## Others
+
+There are a few other tools out there that basically do the same thing, but
+I wasn't able to use them for various reasons. But one of them may work for you.
+
+* The LinuxCNC project [has a ShuttleXpress](http://linuxcnc.org/docs/html/drivers/shuttlexpress.html)
+  driver, but it's an entire embedded distro & extracting just that tool wasn't
+  feasible. [GitHub source here](https://github.com/jepler/linuxcnc-mirror).
+* The [ShuttlePro project](http://freecode.com/projects/shuttlepro) on FreeCode
+  has what appears to be a standalone program but I couldn't get it to build.
+  It seems to be an entire GUI-based tool to also allow mapping the translations.
+  [GitHub source here](https://github.com/nanosyzygy/ShuttlePRO).
+* Here's [another ShuttleXpress tool on GitHub](https://github.com/threedaymonk/shuttlexpress)
+  written in Scheme. I could barely figure out what Chickens and Eggs were, much
+  less build the thing.
