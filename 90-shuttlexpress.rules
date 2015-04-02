@@ -1,0 +1,2 @@
+# Copy to /etc/udev/rules.d
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="0b33", ATTRS{idProduct}=="0020", SYMLINK+="shuttlexpress", MODE="0666"
