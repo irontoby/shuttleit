@@ -1,23 +1,35 @@
 # shuttleit
 Event handler for Contour Design ShuttleXpress
 
-## Work In Progress
+## Work (Not?) In Progress
 
 This is a perl script which reads the HID events from a Contour
 ShuttleXpress, and translates them into keypresses.
 
 This is scratching my own itch. I want to use mine as a media control
 to send play/pause/next/prev track keys and raise/lower volume in Linux.
+Thus, the actions performed by each button are hard-coded into the script.
 
-Hopefully I'll add some command-line options and a more convenient way of
-changing what each control does without having to hack the main script.
+The next logical steps would be to add command-line options for `--debug`,
+`--daemon`, etc., as well as a better way for changing what each button does,
+but since it already does what I need I'm not sure I'll get around to it.
+Feel free to email me or add an Issue if you'd like to request something.
+Of course patches are welcome too!
 
 ## Installation / Use
+
+I've only tested this on Ubuntu 14.04, but it should work on any system where
+a device file can be created to read inputs from.
 
 1. Copy 90-shuttlexpress.rules to your udev rules directory. On Ubuntu,
    this is `/etc/udev/rules.d`:
 
         sudo cp 90-shuttlexpress.rules /etc/udev/rules.d
+
+   The purpose of this entry is to tell the udev subsystem that it should
+   create a worl-readable device file entry at `/dev/shuttlexpress` any time
+   the device is plugged in. That way, the script can be run by any user
+   without root privileges.
 
 2. Plug your ShuttleXpress into a USB port and verify that the device
    `/dev/shuttlexpress` got created. Recent versions of Ubuntu use `inotify`
@@ -53,6 +65,11 @@ ring location, position of inner dial).
 In addition, the script tracks the previous state and uses this to determine
 whether the up/down state of each button has changed, and whether the dial has
 moved to the left or the right since the previous read.
+
+I wrote my script in Perl because it's already installed on most \*nix distros.
+There are no other external dependencies or build requirements; all of the
+other options out there I could find (see below) didn't make it very easy to
+get them running and in the end I couldn't get them to work.
 
 ## Others
 
