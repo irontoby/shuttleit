@@ -150,6 +150,7 @@ sub process_state {
 	system "/usr/bin/xdotool key XF86AudioPrev" if $state->{down2};
 	system "/usr/bin/xdotool key XF86AudioPlay" if $state->{down3};
 	system "/usr/bin/xdotool key XF86AudioNext" if $state->{down4};
+	system "/usr/bin/xdotool key alt+shift+w" if $state->{down5};
 	
 	# Stop if hold down button 1 + press button 3
 	system "/usr/bin/xdotool key XF86AudioStop" if ($state->{btn1} && $state->{down3});
