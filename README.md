@@ -27,19 +27,23 @@ a device file can be created to read inputs from.
         sudo cp 90-shuttlexpress.rules /etc/udev/rules.d
 
    The purpose of this entry is to tell the udev subsystem that it should
-   create a worl-readable device file entry at `/dev/shuttlexpress` any time
+   create a world-readable device file entry at `/dev/shuttlexpress` any time
    the device is plugged in. That way, the script can be run by any user
    without root privileges.
 
-2. Plug your ShuttleXpress into a USB port and verify that the device
+2. Install `xdotool` if not already present (`sudo apt install xdotool`).
+   This is used to send the keypresses which will be simulated by the script.
+
+3. Plug your ShuttleXpress into a USB port and verify that the device
    `/dev/shuttlexpress` got created. Recent versions of Ubuntu use `inotify`
    so the rule should be picked up immediately; if not then try
    `sudo udevadm control --reload-rules`.
 
-3. Either manually run `shuttleit.pl`, or set it to run automatically when
+4. Either manually run `shuttleit.pl`, or set it to run automatically when
    you login. On Ubuntu, this is best accomplished using the "Startup
    Applications" tool.
-4. Turn the knob on your ShuttleXpress; your system volume should adjust
+
+5. Turn the knob on your ShuttleXpress; your system volume should adjust
    accordingly.
 
 ## Hacking
