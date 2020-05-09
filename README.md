@@ -10,6 +10,9 @@ This is scratching my own itch. I want to use mine as a media control
 to send play/pause/next/prev track keys and raise/lower volume in Linux.
 Thus, the actions performed by each button are hard-coded into the script.
 
+I kinda wish I'd used this as an opportunity to learn Go, but Perl is what
+I knew, so... here we are ¯\\\_(ツ)\_\/¯
+
 The next logical steps would be to add command-line options for `--debug`,
 `--daemon`, etc., as well as a better way for changing what each button does,
 but since it already does what I need I'm not sure I'll get around to it.
@@ -18,8 +21,10 @@ Of course patches are welcome too!
 
 ## Installation / Use
 
-I've only tested this on Ubuntu 14.04, but it should work on any system where
-a device file can be created to read inputs from.
+I've only tested this on Ubuntu 14.04+ (including 20.04), but it should work
+on any system where a device file can be created to read inputs from.
+
+1. Leave the ShuttleXpress unplugged.
 
 1. Copy 90-shuttlexpress.rules to your udev rules directory. On Ubuntu,
    this is `/etc/udev/rules.d`:
@@ -31,19 +36,19 @@ a device file can be created to read inputs from.
    the device is plugged in. That way, the script can be run by any user
    without root privileges.
 
-2. Install `xdotool` if not already present (`sudo apt install xdotool`).
+1. Install `xdotool` if not already present (`sudo apt install xdotool`).
    This is used to send the keypresses which will be simulated by the script.
 
-3. Plug your ShuttleXpress into a USB port and verify that the device
+1. Plug your ShuttleXpress into a USB port and verify that the device
    `/dev/shuttlexpress` got created. Recent versions of Ubuntu use `inotify`
    so the rule should be picked up immediately; if not then try
    `sudo udevadm control --reload-rules`.
 
-4. Either manually run `shuttleit.pl`, or set it to run automatically when
+1. Either manually run `shuttleit.pl`, or set it to run automatically when
    you login. On Ubuntu, this is best accomplished using the "Startup
-   Applications" tool.
+   Applications" tool. By default, it will stay running in the background.
 
-5. Turn the knob on your ShuttleXpress; your system volume should adjust
+1. Turn the knob on your ShuttleXpress; your system volume should adjust
    accordingly.
 
 ## Hacking
