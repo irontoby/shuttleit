@@ -85,7 +85,7 @@ get them running and in the end I couldn't get them to work.
 There are a few other tools out there that basically do the same thing, but
 I wasn't able to use them for various reasons. But one of them may work for you.
 
-* The LinuxCNC project [has a ShuttleXpress](http://linuxcnc.org/docs/html/drivers/shuttlexpress.html)
+* The LinuxCNC project [has a ShuttleXpress](https://linuxcnc.org/docs/html/drivers/shuttle.html)
   driver, but it's an entire embedded distro & extracting just that tool wasn't
   feasible. [GitHub source here](https://github.com/jepler/linuxcnc-mirror).
 * The [ShuttlePro project](http://freecode.com/projects/shuttlepro) on FreeCode
