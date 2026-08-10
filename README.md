@@ -1,6 +1,17 @@
 # shuttleit
 Event handler for Contour Design ShuttleXpress
 
+## Update: August 2026
+
+As noted below, this tool was originally written in Perl and depended on
+the external `xdotool` app, which is specific to X11.
+
+I am currently using AI to reverse-engineer the script so that I can
+rewrite it in Go without any dependencies.
+
+See [SPEC.md](SPEC.md) for the specification. More updates hopefully
+soon....
+
 ## Work (Not?) In Progress
 
 This is a perl script which reads the HID events from a Contour
